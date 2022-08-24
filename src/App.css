@@ -57,6 +57,12 @@ input {
   justify-content: space-around;
 }
 
+.player-roles {
+  color: #f1f1f1;
+  align-items: space-around;
+  margin: 50px;
+}
+
 #btn {
   cursor: pointer;
   color: #f1f1f1;
@@ -64,7 +70,7 @@ input {
   background-color: transparent;
   display: block;
   padding: 15px;
-  margin: 15px auto;
+  margin: 15px 30px;
   margin-top: 50px;
   border-color: #f1f1f1;
 }

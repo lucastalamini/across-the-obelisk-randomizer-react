@@ -1,6 +1,14 @@
-// Import Submit Button
+// Import SubmitButton
 
-import { SubmitButton } from "../buttons/index.js";
+import { SubmitButton } from "../buttons/submit/index.js";
+
+// Import NewGameButton
+
+import { NewGameButton } from "../buttons/new-game/index.js";
+
+// Import RoleRandomizer
+
+import { RoleRandomizer } from "../randomizer/index.js";
 
 // Form Component
 
@@ -52,46 +60,55 @@ function Form() {
   return (
     <div id="main-container">
       <form id="form-container" onSubmit={handleSubmit}>
-        {submitted ? <div className="success-message">Success!</div> : null}
-        <div className="form-inputs">
-          <input
-            onChange={handlePlayerOneInputChange}
-            value={values.playerOne}
-            className="flex-item"
-            type="text"
-            name="playerOne"
-            placeholder="Player One"
-            required
+        {submitted ? (
+          <RoleRandomizer
+            playerOne={values.playerOne}
+            playerTwo={values.playerTwo}
+            playerThree={values.playerThree}
+            playerFour={values.playerFour}
           />
-          <input
-            onChange={handlePlayerTwoInputChange}
-            value={values.playerTwo}
-            className="flex-item"
-            type="text"
-            name="playerTwo"
-            placeholder="Player Two"
-            required
-          />
-          <input
-            onChange={handlePlayerThreeInputChange}
-            value={values.playerThree}
-            className="flex-item"
-            type="text"
-            name="playerThree"
-            placeholder="Player Three"
-            required
-          />
-          <input
-            onChange={handlePlayerFourInputChange}
-            value={values.playerFour}
-            className="flex-item"
-            type="text"
-            name="playerFour"
-            placeholder="Player Four"
-            required
-          />
-        </div>
-        <SubmitButton />
+        ) : null}
+        {!submitted ? (
+          <div className="form-inputs">
+            <input
+              onChange={handlePlayerOneInputChange}
+              value={values.playerOne}
+              className="flex-item"
+              type="text"
+              name="playerOne"
+              placeholder="Player One"
+              required
+            />
+            <input
+              onChange={handlePlayerTwoInputChange}
+              value={values.playerTwo}
+              className="flex-item"
+              type="text"
+              name="playerTwo"
+              placeholder="Player Two"
+              required
+            />
+            <input
+              onChange={handlePlayerThreeInputChange}
+              value={values.playerThree}
+              className="flex-item"
+              type="text"
+              name="playerThree"
+              placeholder="Player Three"
+              required
+            />
+            <input
+              onChange={handlePlayerFourInputChange}
+              value={values.playerFour}
+              className="flex-item"
+              type="text"
+              name="playerFour"
+              placeholder="Player Four"
+              required
+            />
+          </div>
+        ) : null}
+        {!submitted ? <SubmitButton /> : <NewGameButton />}
       </form>
     </div>
   );
